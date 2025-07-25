@@ -1,21 +1,23 @@
 <%- include('partials/head') %>
 
-<div class="container d-flex flex-column gap-3 my-3">
+    <div class="container d-flex flex-column gap-3 my-3">
 
-    <hr>
-    <h1>Faça a sua pergunta</h1>
-    <a href="/createQuestion" class="btn btn-primary align-self-start">Começar Questionário</a>
-    <hr>
+        <hr>
+        <h1>Faça a sua pergunta</h1>
+        <a href="/create-question" class="btn btn-primary align-self-start">Começar Questionário</a>
+        <hr>
 
-    <% questions.forEach(question => { %>
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h4 class="m-0"><%= question.title %></h4>                
+        <% questions.forEach(question=> { %>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="m-0">
+                        <%= question.title %>
+                    </h4>
+                </div>
+                <div class="card-footer">
+                    <a href="/question/<%= question.id %>" class="btn btn-primary">Responder</a>
+                </div>
             </div>
-            <div class="card-footer">
-                <a href="/question/<%= question.id %>" class="btn btn-primary">Responder</a>
-            </div>
-        </div>
-    <% }) %>
+            <% }) %>
 
-<%- include('partials/footer') %>
+                <%- include('partials/footer') %>
