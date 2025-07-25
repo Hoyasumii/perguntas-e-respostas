@@ -1,13 +1,7 @@
-import path from "node:path";
 import { renderFile } from "ejs";
 
 export async function GET() {
-	const pageFilePath = path.join(
-		process.env.PWD || "",
-		"src/views/question-page.ejs",
-	);
-
-	const pageContent = await renderFile(pageFilePath, {
+	const pageContent = await renderFile("/views/question-page.ejs", {
 		questions: [],
 		answers: [],
 	});
