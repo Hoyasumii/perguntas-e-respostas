@@ -1,9 +1,15 @@
+import path from "node:path";
 import { renderFile } from "ejs";
 import type { NextRequest } from "next/server";
 import { redirect } from "next/navigation";
 
 export async function GET() {
-	const pageContent = await renderFile("/views/create-question.ejs");
+	const pageFilePath = path.join(
+		process.env.PWD || "",
+		"/views/create-question.ejs",
+	);
+
+	const pageContent = await renderFile(pageFilePath);
 
 	return new Response(pageContent, {
 		headers: {
