@@ -1,4 +1,4 @@
-import { HTTP } from "@/core/enums";
+import { HTTP } from "@/enums";
 
 export abstract class ApplicationError extends Error {
 	constructor(
