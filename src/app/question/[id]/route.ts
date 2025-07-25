@@ -1,15 +1,13 @@
-import path from "node:path";
 import { renderFile } from "ejs";
+import { viewsPath } from "@/constants";
 
 export async function GET() {
-	const pageFilePath = path.join(
-		process.cwd(),
-		"src/views/question-page.ejs",
-	);
-
-	const pageContent = await renderFile(pageFilePath, {
+	const pageContent = await renderFile(`${viewsPath}/question-page.ejs`, {
 		questions: [],
 		answers: [],
+		head: `${viewsPath}/partials/head`,
+		navbar: `${viewsPath}/partials/navbar`,
+		footer: `${viewsPath}/partials/footer`,
 	});
 
 	return new Response(pageContent, {

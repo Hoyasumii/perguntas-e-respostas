@@ -1,15 +1,14 @@
-import path from "node:path";
 import { renderFile } from "ejs";
 import type { NextRequest } from "next/server";
 import { redirect } from "next/navigation";
+import { viewsPath } from "@/constants";
 
 export async function GET() {
-	const pageFilePath = path.join(
-		process.cwd(),
-		"/views/create-question.ejs",
-	);
-
-	const pageContent = await renderFile(pageFilePath);
+	const pageContent = await renderFile(`${viewsPath}/create-question.ejs`, {
+		head: `${viewsPath}/partials/head`,
+		navbar: `${viewsPath}/partials/navbar`,
+		footer: `${viewsPath}/partials/footer`,
+	});
 
 	return new Response(pageContent, {
 		headers: {
