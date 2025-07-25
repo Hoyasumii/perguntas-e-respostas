@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 
 export async function GET() {
 	const pageFilePath = path.join(
-		process.env.PWD || "",
+		process.cwd(),
 		"/views/create-question.ejs",
 	);
 

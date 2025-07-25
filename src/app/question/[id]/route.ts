@@ -3,7 +3,7 @@ import { renderFile } from "ejs";
 
 export async function GET() {
 	const pageFilePath = path.join(
-		process.env.PWD || "",
+		process.cwd(),
 		"src/views/question-page.ejs",
 	);
 
