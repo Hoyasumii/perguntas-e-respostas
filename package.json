@@ -1,19 +1,33 @@
 {
-  "name": "6-projeto-1",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.20.2",
-    "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "sequelize": "^6.31.0",
-    "sqlite3": "^5.1.6"
-  }
+	"name": "6-projeto-1",
+	"version": "1.0.0",
+	"description": "",
+	"type": "module",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.20.2",
+		"ejs": "^3.1.9",
+		"express": "^4.18.2",
+		"next": "^15.4.4",
+		"sequelize": "^6.31.0",
+		"sqlite3": "^5.1.6"
+	},
+	"packageManager": "pnpm@10.10.0",
+	"devDependencies": {
+		"@biomejs/biome": "^2.1.2",
+		"@tailwindcss/postcss": "^4.1.11",
+		"@types/ejs": "^3.1.5",
+		"@types/node": "^24.1.0",
+		"@types/react": "19.1.8",
+		"postcss": "^8.5.6",
+		"tailwindcss": "^4.1.11",
+		"tsx": "^4.20.3",
+		"typescript": "^5.8.3"
+	}
 }
