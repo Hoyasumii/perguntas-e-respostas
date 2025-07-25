@@ -5,6 +5,6 @@ export class GetAllQuestionsService {
 	constructor(private repository: QuestionsRepositoryInterface) {}
 
 	async run(): Promise<Array<GetQuestionDTO>> {
-		return await this.repository.getAll();
+		return (await this.repository.getAll()).reverse();
 	}
 }

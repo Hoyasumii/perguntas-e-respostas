@@ -5,8 +5,8 @@ import { useConnection } from "@/utils";
 export class GetAllQuestions {
 	@useConnection()
 	static async run(): Promise<Array<GetQuestionDTO>> {
-		const newQuestion = await Question.find().lean();
+		const questions = await Question.find().lean();
 
-		return newQuestion;
+		return questions as unknown as Array<GetQuestionDTO>;
 	}
 }

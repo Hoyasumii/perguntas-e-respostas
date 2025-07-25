@@ -19,31 +19,31 @@ app.use(bodyParser.json());
     O método render() é responsável por renderizar uma página HTML. Nesse caso está renderizando a página com extensão .ejs. Outra coisa, a pasta views é a pasta padrão do Express, então não é necessário especificar o caminho da pasta views.
 */
 
-app.get(`/`, (req, res) => {
-    questions.findAll({raw: true, order:[
-        ['id', 'DESC'] // ID seria a propriedade de destaque; 
-        // ASC = Crescente || DESC = Decrescente
-    ]}).then(questions => { // O raw é para retornar apenas os dados e não os metadados
-        res.render(`index`, {
-            questions
-        });
-    });
-})
+// app.get(`/`, (req, res) => {
+//     questions.findAll({raw: true, order:[
+//         ['id', 'DESC'] // ID seria a propriedade de destaque; 
+//         // ASC = Crescente || DESC = Decrescente
+//     ]}).then(questions => { // O raw é para retornar apenas os dados e não os metadados
+//         res.render(`index`, {
+//             questions
+//         });
+//     });
+// })
 
-app.get(`/createQuestion`, (req, res) => {
-    res.render(`createQuestion`); 
-})
+// app.get(`/createQuestion`, (req, res) => {
+//     res.render(`createQuestion`); 
+// })
 
-app.post('/createQuestion', (req, res) => {
-    let {title, description} = req.body;
+// app.post('/createQuestion', (req, res) => {
+//     let {title, description} = req.body;
 
-    questions.create({
-        title,
-        description
-    });
+//     questions.create({
+//         title,
+//         description
+//     });
     
-    res.redirect('/');
-});
+//     res.redirect('/');
+// });
 
 app.get('/question/:id', (req, res) => {
     let id = req.params.id;
@@ -70,16 +70,16 @@ app.get('/question/:id', (req, res) => {
 
 });
 
-app.post('/answer', (req, res) => {
-    let {text, questionId} = req.body;
+// app.post('/answer', (req, res) => {
+//     let {text, questionId} = req.body;
 
-    answers.create({
-        text,
-        questionId
-    })
+//     answers.create({
+//         text,
+//         questionId
+//     })
 
-    res.redirect(`/question/${questionId}`);
-});
+//     res.redirect(`/question/${questionId}`);
+// });
 
 app.listen(3000, () => {
     console.log('Running at http://localhost:3000');

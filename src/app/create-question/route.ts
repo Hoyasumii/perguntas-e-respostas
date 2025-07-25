@@ -2,6 +2,7 @@ import { renderFile } from "ejs";
 import type { NextRequest } from "next/server";
 import { redirect } from "next/navigation";
 import { viewsPath } from "@/constants";
+import { makeCreateQuestion } from "@/factories/questions";
 
 export async function GET() {
 	const pageContent = await renderFile(`${viewsPath}/create-question.ejs`, {
@@ -20,8 +21,14 @@ export async function GET() {
 export async function POST(request: NextRequest) {
 	const formData = await request.formData();
 
-	const title = formData.get("title");
-	const description = formData.get("description");
+	const title = formData.get("title")! as string;
+	const description = formData.get("description")! as string;
+
+	const service = makeCreateQuestion();
+
+	try {
+		await service.run({ title, description });
+	} catch (_) {}
 
 	return redirect("/");
 }

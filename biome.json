@@ -19,6 +19,9 @@
 			"complexity": {
 				"useArrowFunction": "off",
 				"noStaticOnlyClass": "off"
+			},
+			"style": {
+				"noNonNullAssertion": "off"
 			}
 		}
 	},

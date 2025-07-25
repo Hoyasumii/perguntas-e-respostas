@@ -8,4 +8,4 @@ const answerSchema = new mongoose.Schema({
 });
 
 export type Answer = mongoose.InferSchemaType<typeof answerSchema>;
-export const Answer = mongoose.model("answers", answerSchema);
+export const Answer = mongoose.models.answers || mongoose.model("answers", answerSchema);
